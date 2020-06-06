@@ -67,10 +67,10 @@ export default class Circle {
     }
 
     if (
-      this.mouseMove.x - this.x < 200 &&
-      this.mouseMove.x - this.x > -200 &&
-      this.mouseMove.y - this.y < 200 &&
-      this.mouseMove.y - this.y > -200
+      this.mouseMove.x - this.x < 150 &&
+      this.mouseMove.x - this.x > -150 &&
+      this.mouseMove.y - this.y < 150 &&
+      this.mouseMove.y - this.y > -150
     ) {
       actions.push('INCREASE_OPACITY');
     }
@@ -135,6 +135,7 @@ export default class Circle {
       DECREASE_OPACITY: () => {
         if (this.opacity > 0) {
           this.opacity -= 0.02;
+          this.opacity = Math.max(0, this.opacity);
         }
       },
       DETECT_COLLISION: () => {
